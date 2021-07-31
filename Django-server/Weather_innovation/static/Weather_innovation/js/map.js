@@ -7,15 +7,44 @@ $(document).ready(function() {
         minZoom: 3
     });
 
-    var popup = new mapboxgl.Popup()
-        .setText('Description')
-        .addTo(map);
+    $.getJSON("/weatherinnovation/getsurveys", function(JSONdata) {
+        /*var popup = new mapboxgl.Popup()
+            .setText('Description')
+            .addTo(map);
 
-    var marker = new mapboxgl.Marker()
-        .setLngLat([9.24, 45.759])
-        .addTo(map).setPopup(popup);
+        var marker = new mapboxgl.Marker()
+            .setLngLat([9.24, 45.759])
+            .addTo(map).setPopup(popup);*/
 
-    marker1 = new mapboxgl.Marker()
-        .setLngLat([39.24, 45.759])
-        .addTo(map);
+
+        // {
+        //     "longitude": 0.14564465,
+        //     "latitude": 9.656,
+        //     "temperature": 18,
+        //     "pressure": 1013,
+        //     "humidity": 72
+        // }
+
+        var marker;
+        var popup;
+
+        for (let i = 0; i < JSONdata.length; i++) {
+            longitude = JSONdata[i].longitude;
+            latitude = JSONdata[i].latitude;
+            temperature = JSONdata[i].temperature;
+            pressure = JSONdata[i].pressure;
+            humidity = JSONdata[i].humidity;
+            time = JSONdata[i].time;
+
+            var description = "Temperature: " + temperature + ", Pressure: " + pressure + "\nHumidity: " + humidity + ", Time: " + time;
+
+            popup = new mapboxgl.Popup()
+                .setText(description)
+                .addTo(map);
+
+            marker = new mapboxgl.Marker()
+                .setLngLat([longitude, latitude])
+                .addTo(map).setPopup(popup);
+        }
+    });
 });

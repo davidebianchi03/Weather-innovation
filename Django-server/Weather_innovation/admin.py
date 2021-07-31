@@ -8,5 +8,5 @@ class SettingsAdmin(admin.ModelAdmin):
 admin.site.register(Settings, SettingsAdmin)
 
 class SurveysAdmin(admin.ModelAdmin):
-    list_display = ('longitude','latitude','time','temperature','pressure','humidity')
+    list_display = ('id','longitude','latitude','time','temperature','pressure','humidity')
 admin.site.register(Surveys,SurveysAdmin)

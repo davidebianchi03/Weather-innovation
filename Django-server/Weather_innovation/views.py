@@ -11,11 +11,12 @@ class IndexView(generic.TemplateView):
 
 @csrf_exempt
 def getSurveysView(request):
-    n_elements = Surveys.objects.all().count()
+    
     response = list()
 
-    for i in range(1,n_elements+1):
-        data = Surveys.objects.get(id = 1)
+    surveys_id_list = Surveys.objects.values_list('id', flat=True)
+    for i in surveys_id_list:
+        data = Surveys.objects.get(id = i)
         s_longitude = data.longitude
         s_latitude = data.latitude
         s_temperature = data.temperature
@@ -24,6 +25,4 @@ def getSurveysView(request):
         s_time = data.time
         response.append({'longitude':s_longitude,'latitude':s_latitude,'temperature':s_temperature,'pressure':s_pressure,'humidity':s_humidity,'time':s_time})
 
-    print(n_elements)
-    print(response)
     return JsonResponse(response,safe=False)
