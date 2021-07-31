@@ -1,0 +1,22 @@
+{% extends 'Weather_innovation/base.html'%} {% load static %}
+<!--  -->
+
+{% block extra_stylesheets %} {% endblock %}
+<!--  -->
+
+{% block extra_scripts %}
+<script src="{% static 'Weather_innovation/js/map.js'%}"></script>
+{% endblock %}
+<!--  -->
+
+{% block extra_head%}
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+<title>Weather innovation</title>
+<!--  -->
+{% endblock%}
+
+<!--  -->
+{% block content%}
+<div id='map' width="100%" style='height:100vh'></div>
+{% endblock %}

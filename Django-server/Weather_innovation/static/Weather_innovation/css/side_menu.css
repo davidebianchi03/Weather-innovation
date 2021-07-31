@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body {
+    display: flex;
+}
+
+.sidebar {
+    font-family: 'Poppins', sans-serif;
+    height: 98.7vh;
+    width: 240px;
+    top: 0;
+    background-color: #11101d;
+    padding: 6px 14px;
+}
+
+.sidebar .logo_content {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: 40px;
+}
+
+.logo_name {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    float: right;
+    margin-top: 0;
+}
+
+.logo_content .logo i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.logo_content .logo .logo_name {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.sidebar #btn_collapse {
+    background: none;
+    border: none;
+}
+
+.sidebar #btn_collapse ion-icon {
+    color: #fff;
+    position: absolute;
+    /* left: 90%; */
+    font-size: 20px;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+    /* padding: 15px; */
+    margin-left: 10px;
+}
+
+.sidebar ul {
+    margin-top: 50px;
+}
+
+.sidebar ul li {
+    list-style: none;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    margin: 0 5px;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #11101d;
+}
+
+.sidebar ul li a i {
+    height: 75px;
+    min-width: 75px;
+    border-radius: 12px;
+    line-height: 50pc;
+}
+
+.sidebar ul li a span {
+    margin-left: 20px;
+}
+
+#content {
+    float: right;
+    width: 100%;
+}
