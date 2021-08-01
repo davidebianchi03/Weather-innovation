@@ -5,8 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather innovation</title>
 
     {% block stylesheets %}
     <link rel="stylesheet" href="{% static 'Weather_innovation/css/side_menu.css' %}"> {% endblock %}
@@ -28,6 +27,8 @@
     <!--  -->
     {% block extra_head%} {% endblock%}
     <link rel="shortcut icon" href="{% static 'Weather_innovation/img/icon_transparent_background.png' %}">
+    <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
 </head>
 
 <body>
@@ -51,19 +52,19 @@
             <li>
                 <a href="#">
                     <ion-icon name="thermometer-outline"></ion-icon>
-                    <span class="sidebar_text">View temperature</span>
+                    <span class="sidebar_text">Temperature</span>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <ion-icon name="speedometer-outline"></ion-icon>
-                    <span class="sidebar_text">View pressure</span>
+                    <span class="sidebar_text">Pressure</span>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <ion-icon name="water-outline"></ion-icon>
-                    <span class="sidebar_text">View humidity</span>
+                    <span class="sidebar_text">Humidity</span>
                 </a>
             </li>
 

@@ -7,6 +7,8 @@
 
 body {
     display: flex;
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
 }
 
 .sidebar {
@@ -106,5 +108,7 @@ body {
 
 #content {
     float: right;
-    width: 100%;
+    position: relative;
+    height: 100% !important;
+    width: 100% !important;
 }

@@ -7,6 +7,18 @@ $(document).ready(function() {
         minZoom: 3
     });
 
+    if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $("#map").width('150%');
+        window.scrollLeft = 0;
+        map.resize();
+    }
+
+    if (window.width < 800) {
+        $("#map").width('150%');
+        window.scrollLeft = 0;
+        map.resize();
+    }
+
     $.getJSON("/weatherinnovation/getsurveys", function(JSONdata) {
         /*var popup = new mapboxgl.Popup()
             .setText('Description')
@@ -36,7 +48,7 @@ $(document).ready(function() {
             humidity = JSONdata[i].humidity;
             time = JSONdata[i].time;
 
-            var description = "Temperature: " + temperature + ", Pressure: " + pressure + "\nHumidity: " + humidity + ", Time: " + time;
+            var description = "<b>Temperature:<b> " + temperature + ", Pressure: " + pressure + "\nHumidity: " + humidity + ", Time: " + time;
 
             popup = new mapboxgl.Popup()
                 .setText(description)
@@ -45,6 +57,17 @@ $(document).ready(function() {
             marker = new mapboxgl.Marker()
                 .setLngLat([longitude, latitude])
                 .addTo(map).setPopup(popup);
+
+            map.fire('closeAllPopups');
+            popup.remove(); //Chiudo tutti i popup
         }
+
+
+        $("#btn_collapse").click(function() {
+            $("#map").width('150%');
+            window.scrollLeft = 0;
+            map.resize();
+        });
+
     });
 });
