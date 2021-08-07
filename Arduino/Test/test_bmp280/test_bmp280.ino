@@ -36,7 +36,6 @@ void setup() {
   //set an oversampling setting for pressure and temperature measurements.
   bmx280.writeOversamplingPressure(BMx280MI::OSRS_P_x16);
   bmx280.writeOversamplingTemperature(BMx280MI::OSRS_T_x16);
-  bmx280.writeOversamplingTemperature(BMx280MI::OSRS_H_x16);
 
   //if sensor is a BME280, set an oversampling setting for humidity measurements.
   if (bmx280.isBME280()) bmx280.writeOversamplingHumidity(BMx280MI::OSRS_H_x16);
