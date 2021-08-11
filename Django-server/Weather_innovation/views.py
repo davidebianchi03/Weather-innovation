@@ -1,5 +1,5 @@
 from django.http import response
-from Weather_innovation.models import Surveys
+from Weather_innovation.models import Surveys, UsersDevices
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views import generic
@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+import time
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -17,22 +18,40 @@ def IndexView(request):
 
 @csrf_exempt
 def getSurveysView(request):
-    
-    response = list()
+	response = list()
+	devices_list = UsersDevices.objects.filter(username = request.user.username).values_list('device_id', flat=True) 
+	for device in devices_list:
+		surveys_id_list = Surveys.objects.filter(device_id = device).values_list('id', flat=True)
+		for i in surveys_id_list:
+			data = Surveys.objects.get(id = i)
+			s_longitude = data.longitude
+			s_latitude = data.latitude
+			s_temperature = data.temperature
+			s_pressure = data.pressure
+			s_humidity = data.humidity
+			s_time = data.time
+			response.append({'longitude':s_longitude,'latitude':s_latitude,'temperature':s_temperature,'pressure':s_pressure,'humidity':s_humidity,'time':s_time})
 
-    surveys_id_list = Surveys.objects.values_list('id', flat=True)
-    for i in surveys_id_list:
-        data = Surveys.objects.get(id = i)
-        s_longitude = data.longitude
-        s_latitude = data.latitude
-        s_temperature = data.temperature
-        s_pressure = data.pressure
-        s_humidity = data.humidity
-        s_time = data.time
-        response.append({'longitude':s_longitude,'latitude':s_latitude,'temperature':s_temperature,'pressure':s_pressure,'humidity':s_humidity,'time':s_time})
+	return JsonResponse(response,safe=False)
 
-    return JsonResponse(response,safe=False)
+@csrf_exempt
+def getLatestSurveysView(request):
+	response = list()
+	devices_list = UsersDevices.objects.filter(username = request.user.username).values_list('device_id', flat=True) 
+	for device in devices_list:
+		data = Surveys.objects.filter(device_id = device).last()
+		if round(time.time() * 1000) - data.time_in_millis < 3600000:
+			s_longitude = data.longitude
+			s_latitude = data.latitude
+			s_temperature = data.temperature
+			s_pressure = data.pressure
+			s_humidity = data.humidity
+			s_time = data.time
+			response.append({'longitude':s_longitude,'latitude':s_latitude,'temperature':s_temperature,'pressure':s_pressure,'humidity':s_humidity,'time':s_time})
 
+	return JsonResponse(response,safe=False)
+
+@csrf_exempt
 def login_request(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)

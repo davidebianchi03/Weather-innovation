@@ -20,6 +20,7 @@ class Surveys(models.Model):
     pressure = models.FloatField()
     humidity = models.FloatField()
     device_id = models.CharField(max_length=5, default='00000')
+    time_in_millis = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = 'Surveys'

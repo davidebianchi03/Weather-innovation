@@ -19,7 +19,7 @@ $(document).ready(function() {
         map.resize();
     }
 
-    $.getJSON("/weatherinnovation/getsurveys", function(JSONdata) {
+    $.getJSON("/weatherinnovation/getlatestsurveys", function(JSONdata) {
         /*var popup = new mapboxgl.Popup()
             .setText('Description')
             .addTo(map);

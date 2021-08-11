@@ -7,6 +7,7 @@ urlpatterns = [
     # URLs delle Views
     path('', views.IndexView, name='index'),
     path('weatherinnovation/getsurveys', views.getSurveysView, name = "getsurveys"),
+    path('weatherinnovation/getlatestsurveys',views.getLatestSurveysView, name = "getlatestsurveys"),
     path("login", views.login_request, name="login"),
     path("logout", views.logout_view, name = "logout"),
     # URLs delle API
