@@ -8,5 +8,9 @@ class SettingsAdmin(admin.ModelAdmin):
 admin.site.register(Settings, SettingsAdmin)
 
 class SurveysAdmin(admin.ModelAdmin):
-    list_display = ('id','longitude','latitude','time','temperature','pressure','humidity')
+    list_display = ('id','longitude','latitude','time','temperature','pressure','humidity','device_id')
 admin.site.register(Surveys,SurveysAdmin)
+
+class UsersDevicesAdmin(admin.ModelAdmin):
+    list_display = ('username','device_id')
+admin.site.register(UsersDevices, UsersDevicesAdmin)

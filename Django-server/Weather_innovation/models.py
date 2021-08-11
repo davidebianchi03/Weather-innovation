@@ -19,7 +19,16 @@ class Surveys(models.Model):
     temperature = models.FloatField()
     pressure = models.FloatField()
     humidity = models.FloatField()
+    device_id = models.CharField(max_length=5, default='00000')
 
     class Meta:
         verbose_name = 'Surveys'
         verbose_name_plural = 'Surveys'
+
+class UsersDevices(models.Model):
+    username = models.CharField(max_length=50)
+    device_id = models.CharField(max_length=5)
+
+    class Meta:
+        verbose_name = 'UsersDevices'
+        verbose_name_plural = 'UsersDevices'
