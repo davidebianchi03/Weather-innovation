@@ -41,7 +41,9 @@
             </div>
             <div class="logo_name sidebar_text">Weather innovation</div>
         </div>
-        <button id="btn_collapse"><ion-icon name="menu-outline"></ion-icon></button>
+        <button id="btn_collapse">
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
         <ul class="nav_list">
             <li>
                 <a href="#">
@@ -69,7 +71,20 @@
             </li>
 
         </ul>
+        <div id="username">
+            <ion-icon name="person-outline" size="large"></ion-icon>
+            <span class="sidebar_text">{{user.username}}</span>
+        </div>
+        
+        <div id="logout">
+            <a href="/logout">
+                <ion-icon name="log-out-outline" size="large"></ion-icon>
+                <span class="sidebar_text">Logout</span>
+            </a>
+        </div>
+
     </div>
+
     {% endblock %}
     <!--  -->
     <div id="content">
