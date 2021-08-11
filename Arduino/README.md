@@ -5,4 +5,6 @@ Per poter utilizzare lo sketch di arduino è necessario creare un file chiamato 
 
 #define WIFI_SSID "ssid"
 #define WIFI_PASSWORD "pass"
+const String SERVER_PATH = "http://192.168.1.49:8000";
+#define DEVICE_ID a0001
 ```
