@@ -3,8 +3,8 @@ Per poter utilizzare lo sketch di arduino è necessario creare un file chiamato 
 ```
 #include "Arduino.h"
 
-#define WIFI_SSID "zyxel"
-#define WIFI_PASSWORD "mauro1969"
+#define WIFI_SSID "ssid"
+#define WIFI_PASSWORD "pass"
 const String SERVER_PATH = "http://192.168.1.49:8000";
 #define DEVICE_ID a0001
 ```
