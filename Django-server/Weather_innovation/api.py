@@ -3,6 +3,7 @@ from django.http.response import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
 import json
+import time
 
 @csrf_exempt
 def getSettingsApi(request):
@@ -27,6 +28,7 @@ def reciveDataApi(request):
     s_temperature = data["temperature"]
     s_pressure = data["pressure"]
     s_humidity = data["humidity"]
+    s_device_id = data["device_id"]
 
     survey_data = {
         'longitude': s_longitude,
@@ -34,6 +36,8 @@ def reciveDataApi(request):
         'temperature':s_temperature,
         'pressure':s_pressure,
         'humidity':s_humidity,
+        'device_id':s_device_id,
+        'time_in_millis': round(time.time() * 1000),
     }
 
     Surveys.objects.create(**survey_data)

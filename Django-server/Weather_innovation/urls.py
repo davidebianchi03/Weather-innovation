@@ -5,9 +5,11 @@ from . import api
 app_name = 'Weather_innovation'
 urlpatterns = [
     # URLs delle Views
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.IndexView, name='index'),
     path('weatherinnovation/getsurveys', views.getSurveysView, name = "getsurveys"),
-
+    path('weatherinnovation/getlatestsurveys',views.getLatestSurveysView, name = "getlatestsurveys"),
+    path("login", views.login_request, name="login"),
+    path("logout", views.logout_view, name = "logout"),
     # URLs delle API
     path('api/getsettings', api.getSettingsApi, name="api_getsettings"),
     path('api/recivedata', api.reciveDataApi, name="api_recivedata"),

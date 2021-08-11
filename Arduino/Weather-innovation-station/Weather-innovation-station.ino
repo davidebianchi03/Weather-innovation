@@ -33,8 +33,8 @@ void loop() {
   int atmospheric_pressure = get_atmospheric_pressure();
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
-  float longitude = 0.14564465;
-  float latitude = 9.656;
+  float longitude = 9.656;
+  float latitude = 45.759;
   send_data_to_server(temperature, humidity, atmospheric_pressure,longitude, latitude);
   
   delay(survey_update_time);
