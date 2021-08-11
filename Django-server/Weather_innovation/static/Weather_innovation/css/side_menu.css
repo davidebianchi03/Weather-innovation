@@ -112,3 +112,29 @@ body {
     height: 100% !important;
     width: 100% !important;
 }
+
+#username{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+   align-items:center;
+}
+
+#logout a{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+   align-items:center;
+   text-decoration: none;
+   width: 200px;
+}
+
+#logout a:hover{
+    background-color: #fff;
+    border-radius: 7px;
+    color:#11101d;
+}
