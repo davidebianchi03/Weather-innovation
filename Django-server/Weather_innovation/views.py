@@ -16,6 +16,18 @@ import time
 def IndexView(request):
     return render(request=request, template_name = 'Weather_innovation/index.html')
 
+@login_required(login_url='/login')
+def TemperatureView(request):
+    return render(request=request, template_name = 'Weather_innovation/temperature.html')
+
+@login_required(login_url='/login')
+def PressureView(request):
+    return render(request=request, template_name = 'Weather_innovation/pressure.html')
+
+@login_required(login_url='/login')
+def HumidityView(request):
+    return render(request=request, template_name = 'Weather_innovation/humidity.html')
+
 @csrf_exempt
 def getSurveysView(request):
 	response = list()
@@ -48,7 +60,7 @@ def getLatestSurveysView(request):
 			s_humidity = data.humidity
 			s_time = data.time
 			response.append({'longitude':s_longitude,'latitude':s_latitude,'temperature':s_temperature,'pressure':s_pressure,'humidity':s_humidity,'time':s_time})
-
+	
 	return JsonResponse(response,safe=False)
 
 @csrf_exempt

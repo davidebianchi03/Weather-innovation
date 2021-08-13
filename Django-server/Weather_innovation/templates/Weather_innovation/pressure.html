@@ -1,0 +1,28 @@
+{% extends 'Weather_innovation/base.html'%} {% load static %}
+<!--  -->
+
+{% block extra_stylesheets %}
+<link rel="stylesheet" href="{% static 'Weather_innovation/css/temperature.css' %}">
+{% endblock %}
+<!--  -->
+
+{% block extra_scripts %}
+
+{% endblock %}
+<!--  -->
+
+{% block extra_head%}
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
+<title>Weather innovation</title>
+<!--  -->
+{% endblock%}
+
+<!--  -->
+{% block content%}
+<div id="title">
+    <h2>Pressure</h2>
+</div>
+<div id='map' width="100%" style='height:96vh'></div>
+<script src="{% static 'Weather_innovation/js/pressure_map.js'%}"></script>
+{% endblock %}

@@ -20,23 +20,6 @@ $(document).ready(function() {
     }
 
     $.getJSON("/weatherinnovation/getlatestsurveys", function(JSONdata) {
-        /*var popup = new mapboxgl.Popup()
-            .setText('Description')
-            .addTo(map);
-
-        var marker = new mapboxgl.Marker()
-            .setLngLat([9.24, 45.759])
-            .addTo(map).setPopup(popup);*/
-
-
-        // {
-        //     "longitude": 0.14564465,
-        //     "latitude": 9.656,
-        //     "temperature": 18,
-        //     "pressure": 1013,
-        //     "humidity": 72
-        // }
-
         var marker;
         var popup;
 
@@ -48,14 +31,14 @@ $(document).ready(function() {
             humidity = JSONdata[i].humidity;
             time = JSONdata[i].time;
 
-            var description = "<b>Temperature:<b> " + temperature + ", Pressure: " + pressure + "\nHumidity: " + humidity + ", Time: " + time;
+            var description = "Temperature: " + temperature + "°C, Pressure: " + pressure + "mBar\nHumidity: " + humidity + "%, Time: " + time;
 
             popup = new mapboxgl.Popup()
                 .setText(description)
                 .addTo(map);
 
             marker = new mapboxgl.Marker()
-                .setLngLat([longitude, latitude])
+                .setLngLat([longitude,latitude])
                 .addTo(map).setPopup(popup);
 
             map.fire('closeAllPopups');

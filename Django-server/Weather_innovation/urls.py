@@ -6,6 +6,9 @@ app_name = 'Weather_innovation'
 urlpatterns = [
     # URLs delle Views
     path('', views.IndexView, name='index'),
+    path('temperature',views.TemperatureView, name='temperature'),
+    path('pressure',views.PressureView, name='pressure'),
+    path('humidity',views.HumidityView, name='humidity'),
     path('weatherinnovation/getsurveys', views.getSurveysView, name = "getsurveys"),
     path('weatherinnovation/getlatestsurveys',views.getLatestSurveysView, name = "getlatestsurveys"),
     path("login", views.login_request, name="login"),
