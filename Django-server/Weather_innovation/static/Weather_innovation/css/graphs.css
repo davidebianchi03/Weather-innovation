@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+#content{
+    font-family: 'Poppins', sans-serif;
+    color: #11101d;
+    text-align: center;
+}
+
+#device_list{
+    font-family: 'Poppins', sans-serif;
+    color: #11101d;
+    font-size: 22px;
+    margin-top: 10px;
+}
+.sidebar{
+    height: 150vh;
+}

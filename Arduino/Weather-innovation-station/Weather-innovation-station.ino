@@ -18,7 +18,7 @@
 
 BMx280I2C bmx280(BMX280_I2C_ADDRESS);//sensore pressione
 DHT dht(DHTPIN, DHTTYPE);//sensore umidità e temperatura
-int survey_update_time = 2000;//tempo tra una rilevazione e la successiva in millisecondi
+int survey_update_time = 300000;//tempo tra una rilevazione e la successiva in millisecondi
 
 TinyGPS gps;//GPS
 SoftwareSerial ss(16, 17); //Porta seriale a cui è connesso il gps
@@ -44,13 +44,16 @@ long last_survey_time = 0;
 float longitude = 0;
 float latitude = 0;
 bool gps_valid_position = false;
+bool data_just_send = false;
 void loop() {
 
-  if (millis() - last_survey_time >= survey_update_time && gps_valid_position) { //Se è trascorso il tempo prefissato a partire dall'ultima rilevazione invio i dati
+  if ((millis() - last_survey_time >= survey_update_time || !data_just_send)&& gps_valid_position) { //Se è trascorso il tempo prefissato a partire dall'ultima rilevazione invio i dati
     int atmospheric_pressure = get_atmospheric_pressure();
     float temperature = dht.readTemperature();
     float humidity = dht.readHumidity();
     send_data_to_server(temperature, humidity, atmospheric_pressure, longitude, latitude);
+    data_just_send = true;
+    last_survey_time = millis();
   }
 
   //Rilevazione GPS
