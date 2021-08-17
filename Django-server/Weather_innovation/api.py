@@ -45,6 +45,7 @@ def reciveDataApi(request):
 
 @csrf_exempt
 def get_last_device_survey(request):
+    print(request.body.decode('UTF-8'))
     request_json = json.loads(request.body.decode('UTF-8'))
     last_survey = Surveys.objects.filter(device_id = request_json["device_id"]).last()
     response = dict()
