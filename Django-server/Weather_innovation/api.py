@@ -42,3 +42,13 @@ def reciveDataApi(request):
 
     Surveys.objects.create(**survey_data)
     return HttpResponse("")
+
+@csrf_exempt
+def get_last_device_survey(request):
+    request_json = json.loads(request.body.decode('UTF-8'))
+    last_survey = Surveys.objects.filter(device_id = request_json["device_id"]).last()
+    response = dict()
+    response["temperature"] = last_survey.temperature
+    response["pressure"] = last_survey.pressure
+    response["humidity"] = last_survey.humidity
+    return JsonResponse(response, safe=False)

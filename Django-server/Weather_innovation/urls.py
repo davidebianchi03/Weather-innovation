@@ -20,4 +20,5 @@ urlpatterns = [
     # URLs delle API
     path('api/getsettings', api.getSettingsApi, name="api_getsettings"),
     path('api/recivedata', api.reciveDataApi, name="api_recivedata"),
+    path('api/getlastsurvey', api.get_last_device_survey, name = "api_getlastsurvey"),
 ]
