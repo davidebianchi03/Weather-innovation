@@ -1,5 +1,5 @@
 #include <DHT.h>
-//#include <DHT_U.h>
+#include <DHT_U.h>
 #include <WiFi.h>
 #include <ArduinoJson.h>//stringhe in formato json
 #include <HTTPClient.h>
