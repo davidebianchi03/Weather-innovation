@@ -11,7 +11,8 @@ void setup(){
 }
 
 void loop(){
-  delay(60000);
+  get_last_survey_json_string();
+  delay(5000);
 }
 
 bool connect_to_wifi() { //funzione per connettersi al wifi(restituisce true se riesce a collegarsi al wifi)
@@ -33,6 +34,26 @@ bool connect_to_wifi() { //funzione per connettersi al wifi(restituisce true se 
     Serial.print("Connected to wifi with IP address: ");
     Serial.println(WiFi.localIP());
   }
-
   return connection_successful;
+}
+
+String get_last_survey_json_string(){
+  String request_url = SERVER_PATH + "api/getlastsurvey";
+  WiFiClient wifi_client;
+  HTTPClient http;
+  http.begin(wifi_client, request_url);
+  StaticJsonDocument<200> doc;
+  doc["device_id"] = DEVICE_ID;
+  String http_request_body;
+  serializeJson(doc,http_request_body);
+  int http_response_code = http.POST(http_request_body);
+  if(http_response_code > 0){
+    String response = http.getString();
+    Serial.println(http_response_code);
+    Serial.println(response);
+  }
+  else {
+    Serial.printf("Errore durante l'invio dei dati al server: %s\n", http.errorToString(http_response_code).c_str());
+  }
+  return "";
 }
