@@ -8,6 +8,7 @@
 #include <SoftwareSerial.h>
 #include <TinyGPS.h>
 #include "env_settings.h"//impostazioni locali
+#include <EEPROM.h>
 
 #define BMX280_I2C_ADDRESS 0x76
 //Sensore temperatura e umidità dht11
@@ -22,6 +23,24 @@ int survey_update_time = 300000;//tempo tra una rilevazione e la successiva in m
 
 TinyGPS gps;//GPS
 SoftwareSerial ss(16, 17); //Porta seriale a cui è connesso il gps
+
+//lunghezza stringa ssid in pos = 0, inizio stringa ssid in pos = 1
+void get_ssid_from_eeprom(){
+  const int ssid_lenght_position = 0;
+  const int ssid_offset = 1;
+
+  int ssid_lenght = EEPROM.read(0);
+  Serial.println(ssid_lenght);
+}
+
+void write_ssid_in_eeprom(){
+  const int ssid_lenght_position = 0;
+  const int ssid_offset = 1;
+
+  EEPROM.write(0,2);
+  EEPROM.commit();
+  Serial.println("State saved in flash memory");
+}
 
 void setup() {
   Serial.begin(115200);
@@ -38,6 +57,8 @@ void setup() {
   ss.begin(9600);
   pinMode(LED, OUTPUT);
   digitalWrite(LED,HIGH);
+  write_ssid_in_eeprom();
+  get_ssid_from_eeprom();
 }
 
 long last_survey_time = 0;
@@ -78,27 +99,27 @@ void loop() {
     float flat, flon;
     unsigned long age;
     gps.f_get_position(&flat, &flon, &age);
-    Serial.print("LAT=");
+    //Serial.print("LAT=");
     latitude = flat == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : flat, 6;
-    Serial.print(latitude);
-    Serial.print(" LON=");
+    //Serial.print(latitude);
+    //Serial.print(" LON=");
     longitude = flon == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : flon, 6;
-    Serial.print(longitude);
+    /*Serial.print(longitude);
     Serial.print(" SAT=");
     Serial.print(gps.satellites() == TinyGPS::GPS_INVALID_SATELLITES ? 0 : gps.satellites());
     Serial.print(" PREC=");
-    Serial.print(gps.hdop() == TinyGPS::GPS_INVALID_HDOP ? 0 : gps.hdop());
+    Serial.print(gps.hdop() == TinyGPS::GPS_INVALID_HDOP ? 0 : gps.hdop());*/
     gps_valid_position = true;
     digitalWrite(LED,LOW);
   }
 
   gps.stats(&chars, &sentences, &failed);
-  Serial.print(" CHARS=");
+  /*Serial.print(" CHARS=");
   Serial.print(chars);
   Serial.print(" SENTENCES=");
   Serial.print(sentences);
   Serial.print(" CSUM ERR=");
-  Serial.println(failed);
+  Serial.println(failed);*/
   if (chars == 0)
     Serial.println("** No characters received from GPS: check wiring **");
 }
