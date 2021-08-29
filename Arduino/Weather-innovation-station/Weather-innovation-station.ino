@@ -1,3 +1,4 @@
+#include <SimpleCLI.h>
 #include <DHT.h>
 #include <DHT_U.h>
 #include <WiFi.h>
@@ -24,25 +25,69 @@ int survey_update_time = 300000;//tempo tra una rilevazione e la successiva in m
 TinyGPS gps;//GPS
 SoftwareSerial ss(16, 17); //Porta seriale a cui è connesso il gps
 
+SimpleCLI cli;
+Command set;
+
 //lunghezza stringa ssid in pos = 0, inizio stringa ssid in pos = 1
-void get_ssid_from_eeprom(){
+String get_ssid_from_eeprom() {
   const int ssid_lenght_position = 0;
   const int ssid_offset = 1;
 
-  int ssid_lenght = EEPROM.read(0);
-  Serial.println(ssid_lenght);
+  int ssid_lenght = EEPROM.read(ssid_lenght_position);
+  //Serial.println(ssid_lenght);
+  String ssid_read = read_string_from_eeprom(ssid_offset, ssid_lenght);
+  //Serial.println(ssid_read);
+  return ssid_read;
 }
 
-void write_ssid_in_eeprom(){
+void write_ssid_in_eeprom(String ssid) {
   const int ssid_lenght_position = 0;
   const int ssid_offset = 1;
 
-  EEPROM.write(0,2);
+  EEPROM.write(ssid_lenght_position, ssid.length()); //scrivo nella cella 0 la lunghezza della stringa dell'ssid
   EEPROM.commit();
-  Serial.println("State saved in flash memory");
+  write_string_in_eeprom(ssid, ssid_offset);
+  //Serial.println("SSID saved in flash memory");
+}
+
+String get_password_from_eeprom(){
+  const int password_lenght_position = 32;
+  const int password_offset = 33;
+
+  int password_lenght = EEPROM.read(password_lenght_position);
+  String password_read = read_string_from_eeprom(password_offset, password_lenght);
+  return password_read;
+}
+
+void write_password_in_eeprom(String password){
+  const int password_lenght_position = 32;
+  const int password_offset = 33;
+
+  EEPROM.write(password_lenght_position, password.length()); //scrivo nella cella 0 la lunghezza della stringa dell'ssid
+  EEPROM.commit();
+  write_string_in_eeprom(password, password_offset);
+}
+
+void write_string_in_eeprom(String string, int offset) {
+  for (int i = offset; i < offset + string.length(); i++) {
+    EEPROM.write(i, string[i - offset]);
+  }
+
+  EEPROM.commit();
+}
+
+String read_string_from_eeprom(int offset, int lenght) {
+  String string_read = "";
+
+  for (int i = offset; i < offset + lenght; i++) {
+    string_read += (char)EEPROM.read(i);
+  }
+
+  return string_read;
 }
 
 void setup() {
+  EEPROM.begin(512);
   Serial.begin(115200);
   Wire.begin();//inizializzazione bus i2c
   connect_to_wifi();//Connessione al wifi
@@ -56,11 +101,45 @@ void setup() {
   //Inizializzazione del GPS
   ss.begin(9600);
   pinMode(LED, OUTPUT);
-  digitalWrite(LED,HIGH);
-  write_ssid_in_eeprom();
-  get_ssid_from_eeprom();
+  digitalWrite(LED, HIGH);
+  
+  set = cli.addCmd("set", set_callback);
+  cli.setOnError(errorCallback); // Set error Callback
+  set.addArgument("parameter");
+  set.addArgument("value");
 }
 
+void errorCallback(cmd_error* e) {
+    CommandError cmdError(e); // Create wrapper object
+
+    Serial.print("ERROR: ");
+    Serial.println(cmdError.toString());
+
+    if (cmdError.hasCommand()) {
+        Serial.print("Did you mean \"");
+        Serial.print(cmdError.getCommand().toString());
+        Serial.println("\"?");
+    }
+}
+
+void set_callback(cmd *c){
+  Command cmd(c);
+
+  Argument parameterArg = cmd.getArgument("parameter");
+  Argument valueArg = cmd.getArgument("value");
+
+  String parameter = parameterArg.getValue();
+  String value = valueArg.getValue();
+
+  
+  if(parameter == "ssid"){
+    write_ssid_in_eeprom(value);
+    
+  }
+  else if(parameter == "password"){
+    write_password_in_eeprom(value);
+  }
+}
 long last_survey_time = 0;
 float longitude = 0;
 float latitude = 0;
@@ -68,7 +147,18 @@ bool gps_valid_position = false;
 bool data_just_send = false;
 void loop() {
 
-  if ((millis() - last_survey_time >= survey_update_time || !data_just_send)&& gps_valid_position) { //Se è trascorso il tempo prefissato a partire dall'ultima rilevazione invio i dati
+  if (Serial.available()) {
+        // Read out string from the serial monitor
+        String input = Serial.readStringUntil('\n');
+
+        //Visualizzo l'input dell'utente
+        /*Serial.print("# ");
+        Serial.println(input);*/
+
+        cli.parse(input);
+    }
+
+  if ((millis() - last_survey_time >= survey_update_time || !data_just_send) && gps_valid_position) { //Se è trascorso il tempo prefissato a partire dall'ultima rilevazione invio i dati
     int atmospheric_pressure = get_atmospheric_pressure();
     float temperature = dht.readTemperature();
     float humidity = dht.readHumidity();
@@ -105,21 +195,21 @@ void loop() {
     //Serial.print(" LON=");
     longitude = flon == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : flon, 6;
     /*Serial.print(longitude);
-    Serial.print(" SAT=");
-    Serial.print(gps.satellites() == TinyGPS::GPS_INVALID_SATELLITES ? 0 : gps.satellites());
-    Serial.print(" PREC=");
-    Serial.print(gps.hdop() == TinyGPS::GPS_INVALID_HDOP ? 0 : gps.hdop());*/
+      Serial.print(" SAT=");
+      Serial.print(gps.satellites() == TinyGPS::GPS_INVALID_SATELLITES ? 0 : gps.satellites());
+      Serial.print(" PREC=");
+      Serial.print(gps.hdop() == TinyGPS::GPS_INVALID_HDOP ? 0 : gps.hdop());*/
     gps_valid_position = true;
-    digitalWrite(LED,LOW);
+    digitalWrite(LED, LOW);
   }
 
   gps.stats(&chars, &sentences, &failed);
   /*Serial.print(" CHARS=");
-  Serial.print(chars);
-  Serial.print(" SENTENCES=");
-  Serial.print(sentences);
-  Serial.print(" CSUM ERR=");
-  Serial.println(failed);*/
+    Serial.print(chars);
+    Serial.print(" SENTENCES=");
+    Serial.print(sentences);
+    Serial.print(" CSUM ERR=");
+    Serial.println(failed);*/
   if (chars == 0)
     Serial.println("** No characters received from GPS: check wiring **");
 }
@@ -128,7 +218,9 @@ void loop() {
 bool connect_to_wifi() { //funzione per connettersi al wifi(restituisce true se riesce a collegarsi al wifi)
   const int wifi_connection_timeout = 5000;//timeout per la connessione al wifi in millisecondi
   WiFi.mode(WIFI_STA);
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.begin(get_ssid_from_eeprom().c_str(), get_password_from_eeprom().c_str());
+  //Serial.println(get_ssid_from_eeprom());
+  //Serial.println(get_password_from_eeprom());
   Serial.print("Connecting to Wifi.");
   long connection_attempt_start = millis();
   bool connection_successful = false;
