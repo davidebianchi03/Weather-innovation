@@ -1,0 +1,16 @@
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\bin\Release\Weather-station-setup-program.exe.config
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\bin\Release\Weather-station-setup-program.exe
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\bin\Release\Weather-station-setup-program.pdb
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program.csproj.AssemblyReference.cache
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\MainWindow.g.cs
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\App.g.cs
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program_MarkupCompile.cache
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program_MarkupCompile.lref
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\App.baml
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\MainWindow.baml
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program.g.resources
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather_station_setup_program.Properties.Resources.resources
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program.csproj.GenerateResource.cache
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program.csproj.CoreCompileInputs.cache
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program.exe
+C:\Users\Davide\Desktop\Weather-innovation\Weather-station-setup-program\Weather-station-setup-program\obj\Release\Weather-station-setup-program.pdb
