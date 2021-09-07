@@ -52,18 +52,21 @@ namespace ClientSetup
                 {
                     serial_port.Open();
                     //invio l'ssid
-                    string ssid_message = "set -parameter ssid -value" + txt_ssid.Text;
+                    string ssid_message = "set -parameter ssid -value " + txt_ssid.Text+"\n";
                     serial_port.Write(ssid_message);
                     Thread.Sleep(500);
                     //invio la password
-                    string password_message = "set -parameter password -value" + passbox_password.Password;
+                    string password_message = "set -parameter password -value " + passbox_password.Password + "\n";
                     serial_port.Write(password_message);
-                    string sensor_message = "set -parameter sensor -value" + sensors[cmb_sensor.SelectedIndex];
-                    serial_port.Write(password_message);
-                    string min_value_message = "set -parameter minvalue -value" + txt_min_value.Text;
-                    serial_port.Write(password_message);
-                    string max_value_message = "set -parameter maxvalue -value" + txt_max_value.Text;
-                    serial_port.Write(password_message);
+                    Thread.Sleep(500);
+                    string sensor_message = "set -parameter sensor -value " + sensors[cmb_sensor.SelectedIndex] + "\n";
+                    serial_port.Write(sensor_message);
+                    Thread.Sleep(500);
+                    string min_value_message = "set -parameter minvalue -value " + txt_min_value.Text + "\n";
+                    serial_port.Write(min_value_message);
+                    Thread.Sleep(500);
+                    string max_value_message = "set -parameter maxvalue -value " + txt_max_value.Text + "\n";
+                    serial_port.Write(max_value_message);
                     MessageBox.Show("Everything went well, restart your station");
                 }
                 catch

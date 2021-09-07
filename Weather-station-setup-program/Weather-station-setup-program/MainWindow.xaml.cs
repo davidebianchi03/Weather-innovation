@@ -42,11 +42,11 @@ namespace Weather_station_setup_program
             {
                 serial_port.Open();
                 //invio l'ssid
-                string ssid_message = "set -parameter ssid -value" + txt_ssid.Text;
+                string ssid_message = "set -parameter ssid -value" + txt_ssid.Text+"\n";
                 serial_port.Write(ssid_message);
                 Thread.Sleep(500);
                 //invio la password
-                string password_message = "set -parameter password -value" + passbox_password.Password;
+                string password_message = "set -parameter password -value" + passbox_password.Password + "\n";
                 serial_port.Write(password_message);
                 MessageBox.Show("Everything went well, restart your station");
             }
