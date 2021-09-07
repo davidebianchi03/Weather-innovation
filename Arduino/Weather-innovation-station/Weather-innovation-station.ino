@@ -204,12 +204,12 @@ void loop() {
   }
 
   gps.stats(&chars, &sentences, &failed);
-  /*Serial.print(" CHARS=");
+  Serial.print(" CHARS=");
     Serial.print(chars);
     Serial.print(" SENTENCES=");
     Serial.print(sentences);
     Serial.print(" CSUM ERR=");
-    Serial.println(failed);*/
+    Serial.println(failed);
   if (chars == 0)
     Serial.println("** No characters received from GPS: check wiring **");
 }
