@@ -1,0 +1,16 @@
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\bin\Debug\ClientSetup.exe.config
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\bin\Debug\ClientSetup.exe
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\bin\Debug\ClientSetup.pdb
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup.csproj.AssemblyReference.cache
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\MainWindow.g.cs
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\App.g.cs
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup_MarkupCompile.cache
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup_MarkupCompile.lref
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\App.baml
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\MainWindow.baml
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup.g.resources
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup.Properties.Resources.resources
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup.csproj.GenerateResource.cache
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup.csproj.CoreCompileInputs.cache
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup.exe
+C:\Users\Davide\Desktop\Weather-innovation\ClientSetup\ClientSetup\obj\Debug\ClientSetup.pdb
