@@ -9,22 +9,24 @@
     <Grid>
         <Image HorizontalAlignment="Left" Height="61" Margin="10,10,0,0" VerticalAlignment="Top" Width="64" Source="Images/icon_transparent_background.png"/>
         <Label Content="Setup your weather station" HorizontalAlignment="Left" Margin="98,10,0,0" VerticalAlignment="Top" Foreground="White" Height="61" Width="539" FontSize="36"/>
-        <Label Content="Select your device serial port" HorizontalAlignment="Left" Margin="97,83,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label Content="Insert your WiFi SSID" HorizontalAlignment="Left" Margin="153,119,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label Content="Insert your WiFi Password" HorizontalAlignment="Left" Margin="119,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Button x:Name="btn_go" Content="GO" HorizontalAlignment="Left" Margin="309,318,0,0" VerticalAlignment="Top" Width="177" Height="28" FontFamily="/Weather-station-setup-program;component/Font/#Poppins" FontSize="18" Background="White" BorderBrush="White" Style="{DynamicResource RoundButton}" Click="btn_go_Click">
+        <Label Content="Select your device serial port" HorizontalAlignment="Left" Margin="81,89,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label Content="Insert your WiFi SSID" HorizontalAlignment="Left" Margin="137,125,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label Content="Insert your WiFi Password" HorizontalAlignment="Left" Margin="103,161,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Button x:Name="btn_go" Content="GO" HorizontalAlignment="Left" Margin="309,351,0,0" VerticalAlignment="Top" Width="177" Height="28" FontFamily="/Weather-station-setup-program;component/Font/#Poppins" FontSize="18" Background="White" BorderBrush="White" Style="{DynamicResource RoundButton}" Click="btn_go_Click">
 
         </Button>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="171,76,0,0" Stroke="White" VerticalAlignment="Top" Width="447"/>
         <ComboBox x:Name="cmb_serial_port" HorizontalAlignment="Left" Margin="338,89,0,0" VerticalAlignment="Top" Width="225" Height="25" FontFamily="/Weather-station-setup-program;component/Font/#Poppins"/>
         <TextBox x:Name="txt_ssid" HorizontalAlignment="Left" Height="23" Margin="338,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" FontFamily="/Weather-station-setup-program;component/Font/#Poppins"/>
         <PasswordBox x:Name="passbox_password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="338,163,0,0" Width="225" FontFamily="/Weather-station-setup-program;component/Font/#Poppins" Height="23"/>
-        <Label Content="Select your sensor" HorizontalAlignment="Left" Margin="119,191,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label Content="Insert your min value" HorizontalAlignment="Left" Margin="119,227,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label Content="Insert your max value" HorizontalAlignment="Left" Margin="119,263,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label Content="Select your sensor" HorizontalAlignment="Left" Margin="103,197,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label Content="Insert your min value" HorizontalAlignment="Left" Margin="103,233,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <ComboBox x:Name="cmb_sensor" HorizontalAlignment="Left" Margin="338,200,0,0" VerticalAlignment="Top" Width="225" SelectedIndex="0"/>
         <TextBox x:Name="txt_min_value" HorizontalAlignment="Left" Height="23" Margin="338,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" FontFamily="/Weather-station-setup-program;component/Font/#Poppins" PreviewTextInput="txt_min_value_PreviewTextInput"/>
         <TextBox x:Name="txt_max_value" HorizontalAlignment="Left" Height="23" Margin="338,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" FontFamily="/Weather-station-setup-program;component/Font/#Poppins" PreviewTextInput="txt_max_value_PreviewTextInput"/>
+        <Label Content="Insert your max value" HorizontalAlignment="Left" Margin="103,269,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label Content="Insert your paired device id" HorizontalAlignment="Left" Margin="103,308,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <TextBox x:Name="txt_paired_device" HorizontalAlignment="Left" Height="23" Margin="338,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" FontFamily="/Weather-station-setup-program;component/Font/#Poppins"/>
 
     </Grid>
 </Window>

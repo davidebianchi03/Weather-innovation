@@ -67,6 +67,9 @@ namespace ClientSetup
                     Thread.Sleep(500);
                     string max_value_message = "set -parameter maxvalue -value " + txt_max_value.Text + "\n";
                     serial_port.Write(max_value_message);
+                    Thread.Sleep(500);
+                    string paired_device_id_message = "set -parameter paireddeviceid -value " + txt_paired_device.Text + "\n";
+                    serial_port.Write(paired_device_id_message);
                     MessageBox.Show("Everything went well, restart your station");
                 }
                 catch

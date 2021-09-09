@@ -144,6 +144,8 @@ void loop() {
       if (error) {
         Serial.print(F("deserializeJson() failed: "));
         Serial.println(error.f_str());
+        Serial.println("INPUT:");
+        Serial.println(server_response);
       }
       else {
         int last_survey_value = doc[get_sensor_from_eeprom()];
@@ -260,29 +262,49 @@ void write_sensor_in_eeprom(String sensor) {
 
 void set_max_value(int value) {
   const int max_value_position = 96;
-  EEPROM.write(max_value_position, value);
-  EEPROM.commit();
+  EEPROMWritelong(max_value_position, value);
 }
 
 int get_max_value() {
   const int max_value_position = 96;
-  return EEPROM.read(max_value_position);
+  return EEPROMReadlong(max_value_position);
 }
 
 void set_min_value(int value) {
-  const int min_value_position = 97;
-  EEPROM.write(min_value_position, value);
-  EEPROM.commit();
+  const int min_value_position = 100;
+  EEPROMWritelong(min_value_position, value);
 }
 
 int get_min_value() {
-  const int min_value_position = 97;
-  return EEPROM.read(min_value_position);
+  const int min_value_position = 100;
+  return EEPROMReadlong(min_value_position);
+}
+
+long EEPROMReadlong(long address) {
+  long four = EEPROM.read(address);
+  long three = EEPROM.read(address + 1);
+  long two = EEPROM.read(address + 2);
+  long one = EEPROM.read(address + 3);
+  
+  return ((four << 0) & 0xFF) + ((three << 8) & 0xFFFF) + ((two << 16) & 0xFFFFFF) + ((one << 24) & 0xFFFFFFFF);
+}
+
+void EEPROMWritelong(int address, long value) {
+  byte four = (value & 0xFF);
+  byte three = ((value >> 8) & 0xFF);
+  byte two = ((value >> 16) & 0xFF);
+  byte one = ((value >> 24) & 0xFF);
+  
+  EEPROM.write(address, four);
+  EEPROM.write(address + 1, three);
+  EEPROM.write(address + 2, two);
+  EEPROM.write(address + 3, one);
+  EEPROM.commit();
 }
 
 String get_paired_device_from_eeprom() {
-  const int paired_device_lenght_position = 100;
-  const int paired_device_offset = 101;
+  const int paired_device_lenght_position = 104;
+  const int paired_device_offset = 105;
 
   int paired_device_lenght = EEPROM.read(paired_device_lenght_position);
   String paired_device_read = read_string_from_eeprom(paired_device_offset, paired_device_lenght);
@@ -290,8 +312,8 @@ String get_paired_device_from_eeprom() {
 }
 
 void write_paired_device_in_eeprom(String paired_device) {
-  const int paired_device_lenght_position = 100;
-  const int paired_device_offset = 101;
+   const int paired_device_lenght_position = 104;
+  const int paired_device_offset = 105;
 
   EEPROM.write(paired_device_lenght_position, paired_device.length()); //scrivo nella cella 0 la lunghezza della stringa dell'ssid
   EEPROM.commit();
