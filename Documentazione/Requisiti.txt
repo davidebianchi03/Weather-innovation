@@ -1,0 +1,13 @@
+REQUISITI - Weather innovation
+
+MUST 
+	- L'utente deve poter visualizzare i dati raccolti dalla stazione meteo. 
+	- L'utente deve poter eseguire procedure automatizzate in base ai dati raccolti dalla stazione meteo.
+	- L'utente deve poter facilmente configurare la stazione meteo e il client.
+
+SHOULD
+	- L'utente deve poter visualizzare i dati sulla mappa.
+	- L'utente deve poter visualizzare i dati tramite un'applicazione sul proprio smartphone.
+
+MAY
+	- L'utente deve poter visualizzare i dati su dei grafici

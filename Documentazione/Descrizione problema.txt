@@ -1,0 +1,4 @@
+DESCRIZIONE DEL PROBLEMA - Wheather innovation
+
+Il problema che vogliamo risolvere con il nostro prodotto è quello di poter controllare a distanza le condizioni atmosferiche
+che ci sono a casa del cliente e in base a quelle rilevazioni poter automatizzare alcune procedure (apertura/chiusura tapparelle...)

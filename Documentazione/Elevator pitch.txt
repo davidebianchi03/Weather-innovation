@@ -1,0 +1,8 @@
+ELEVATOR PITCH - Weather innovation
+
+Molte volte quando siamo lontano da casa vorremmo controllare le condizioni meteorologiche e chiudere tapparelle/persiane se piove.
+Questo è possibile farlo in maniera automatica tramite la nostra stazione meteo e il relativo client. 
+La nostra stazione meteo consente di rilevare i valori della temperatura, della pressione e dell'umidità e visualizzarli da qualsiasi 
+parte del mondo. Inoltre, collegando anche il nostro client, è possibile automatizzare, ad esempio, la chiusura/apertura delle tapparelle
+quando piove in base ai dati raccolti dalla stazione meteo installata a casa vostra. 
+Il nostro sistema è veramente semplice da utilizzare e si adatta a chiunque, anche a chi non è un esperto dal punto di vista tecnologico.

@@ -1,0 +1,58 @@
+COSTUMER JOURNEY MAP - PERSONAS - Weather innovation
+
+Cliente tipo -> Utente comune
+---------------------------------------------------------------------------
+Fase 1 ->"L'utente visualizza la pubblicità della nostra stazione meteo ed inizia ad interessarsi cercando informazioni sul web"
+	OBIETTIVI: 
+	– AZIONI: L'utente mentre sta navigando sul web si imbatte nella pubblicità
+	– OGGETTI: Banner pubblicitario su un sito internet/in una applicazione sullo smartphone
+	– PERSONE: In questa fase è coinvolto solamente l'utente
+	– EMOZIONI: L'utente è stato incuriosito da questo prodotto e quindi decide di interessarsi per capire se fa per lui.
+	– TEAM: Grafici pubblicitari
+
+Fase 2 ->"L'utente, capito che il prodotto è giusto per le sue esigenze, decide di ordinarlo"
+	OBIETTIVI: 
+	– AZIONI: L'utente mentre si reca sul nostro sito o su un sito di e-commerce associato e ordina il prodotto
+	– OGGETTI: Sito web della nostra azienda/sito e-commerce
+	– PERSONE: In questa fase sono coinvolti l'utente e il personale addetto al commercio online
+	– EMOZIONI: L'utente è ancora abbastanza dubbioso sull'acquisto appena fatto per cui pensa che se non sarà adatto per lui
+		    potrà restituire il prodotto entro 30 giorni.
+	– TEAM: Personale addetto al commercio online 
+
+
+Fase 3 ->"L'utente, una volta ricevuto a casa, vede che il prodotto si adatta alle sue esigenze e quindi decide di consigliarlo anche ad altri"
+	OBIETTIVI: 
+	– AZIONI: L'utente prova ad installare il prodotto a casa sua
+	– OGGETTI: Stazione meteo e client
+	– PERSONE: In questa fase è coinvolto solamente l'utente
+	– EMOZIONI: L'utente è sorpreso per la semplicità di utilizzo e installazione del prodotto, inoltre vede che si adatta a lui per cui decide
+		    di tenerlo
+	– TEAM: Sviluppatori programma di installazione
+	
+---------------------------------------------------------------------------
+Cliente tipo -> Meteorologo
+---------------------------------------------------------------------------
+Fase 1 ->"Il meteorologo sta cercando delle mappe con molte rilevazioni per cui si imbatte nel nostro prodotto"
+	OBIETTIVI: 
+	– AZIONI: Il meteorologo si imbatte sul nostro sito e inizia a leggere informazioni
+	– OGGETTI: Sito web del prodotto
+	– PERSONE: Meteorologo 
+	– EMOZIONI: Il meteorologo è incuriosito e contento perchè, forse, ha trovato le mappe che gli servivano
+	– TEAM: Sviluppatori sito web
+
+Fase 2 ->"Il meteorologo si registra ed effettua una prova gratuita di 15 giorni del nostro servizio"
+	OBIETTIVI: 
+	– AZIONI: Il meteorologo si registra ed effettua una prova gratuita di 15 giorni
+	– OGGETTI: Sito web
+	– PERSONE: Meteorologo
+	– EMOZIONI: L'utente inizia a provare il prodotto è capisce che le mappe sono affidabili e di semplice utilizzo
+	– TEAM: Sviluppatori addetti alla visualizzazione dei dati raccolti dalle stazioni
+
+Fase 3 ->"Il meteorologo è contento del prodotto per cui decide di continuarlo ad usare dopo i 15 giorni di prova gratuita"
+	OBIETTIVI: 
+	– AZIONI: Il meteorologo inizia a pagare l'abbonamento al nostro servizio
+	– OGGETTI: Sito web
+	– PERSONE: Meteorologo
+	– EMOZIONI: Il meteorologo è soddisfatto dal servizio per cui continua a pagare l'abbonamento
+	– TEAM: Sviluppatori addetti alla visualizzazione dei dati raccolti dalle stazioni
+---------------------------------------------------------------------------

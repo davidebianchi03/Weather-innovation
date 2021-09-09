@@ -1,0 +1,5 @@
+VALUE PROPOSITION - Weather innovation
+
+I clienti dovrebbero acquistare questo prodotto perchè permette, nel caso ci siano tanti clienti che installano le stazioni meteo, 
+di avere mappe con i dati rilevati da esse con cui poter fare previsioni meteorologiche; inoltre questo prodotto ha un
+ulteriore scopo ovvero quello di permettere all'utente di automatizzare la casa sulla base dei dati rilevati dalla stazione meteo.
