@@ -1,0 +1,23 @@
+CASI D'USO - Weather innovation
+--------------------------------------------------------------------
+1)L'utente vuole consultare i dati letti dalla propria stazione meteo
+	Attore:Utente
+	Eventi:
+	1. L'utente effettua il login sul sito web
+	2. L'utente clicca su una stazione meteo
+	3. Appare un popup sulla mappa con i dati dell'ultima rilevazione
+--------------------------------------------------------------------
+2)La stazione meteo vuole inviare i dati al server
+	Attore:Stazione meteo
+	Eventi:
+	1. La stazione meteo effettua una rilevazione con tutti i sensori
+	2. La stazione meteo si connette a internet
+	3. La stazione meteo fa un post http al server con una stringa json contenente i dati 
+--------------------------------------------------------------------
+3)Il client vuole ottenere i valori letti dalla stazione meteo
+	Attore:Client
+	Eventi:
+	1. Il client si connette al wi-fi
+	2. Il client effettua una post al server contenente l'identificativo della stazione associata
+	3. Il server risponde al client con una stringa in formato json con i dati
+	4. Il client controlla se il valore della rilevazione scelto dall'utente è compreso tra i valori stabiliti invia un impulso
